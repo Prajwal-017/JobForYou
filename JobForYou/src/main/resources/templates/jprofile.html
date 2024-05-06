@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Job Seeker Profile</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Ensure the link to CSS file is valid -->
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 style="text-align: center; color: #4CAF50;">Create Job Seeker Profile</h1>
+        <form method="POST" action="/job-seekers">
+            <div style="margin-bottom: 15px;">
+                <label for="name" style="display: block; font-weight: bold;">Name:</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="email" style="display: block; font-weight: bold;">Email:</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="phone" style="display: block; font-weight: bold;">Phone:</label>
+                <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="skills" style="display: block; font-weight: bold;">Skills:</label>
+                <input type="text" id="skills" name="skills" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="experience" style="display: block; font-weight: bold;">Experience:</label>
+                <input type="text" id="experience" name="experience" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="education" style="display: block; font-weight: bold;">Education:</label>
+                <input type="text" id="education" name="education" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="preferences" style="display: block; font-weight: bold;">Preferences:</label>
+                <textarea id="preferences" name="preferences" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+            </div>
+            <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase; width: 100%;">Create Profile</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to CSS file -->
+</head>
+<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f9f9f9;">
+    <div style="background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+        <h1 style="text-align: center; color: #4CAF50;">Let's Begin</h1>
+        <form method="POST" action="/register">
+            <div style="margin-bottom: 10px;">
+                <label for="name" style="display: block; font-weight: bold;">Name:</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label style="font-weight: bold;">Role:</label>
+                <div style="margin-top: 5px;">
+                    <input type="radio" id="jobseeker" name="role" value="jobseeker" required style="margin-right: 5px;">
+                    <label for="jobseeker" style="margin-right: 20px;">Job Seeker</label>
+                    <input type="radio" id="employer" name="role" value="employer" required style="margin-right: 5px;">
+                    <label for="employer">Employer</label>
+                </div>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="email" style="display: block; font-weight: bold;">Email:</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="password" style="display: block; font-weight: bold;">Password:</label>
+                <input type="password" id="password" name="password" required style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase; width: 100%;">Register</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Seekers</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to CSS file -->
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 style="text-align: center; color: #4CAF50;">Job Listings</h1>
+        <div id="job-listings" style="margin: 20px 0;">
+            <!-- Loop through job listings and display them -->
+            <div th:each="jobListing : ${jobListings}" style="border: 1px solid #ddd; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+                <p><strong>Job Title:</strong> <span th:text="${jobListing.title}"></span></p>
+                <p><strong>Employer:</strong> <span th:text="${jobListing.employerName}"></span></p>
+                <p><strong>Description:</strong> <span th:text="${jobListing.description}"></span></p>
+                <p><strong>Location:</strong> <span th:text="${jobListing.location}"></span></p>
+                <p><strong>Job Type:</strong> <span th:text="${jobListing.jobType}"></span></p>
+                <p><strong>Skills Required:</strong> <span th:text="${jobListing.skillsRequired}"></span></p>
+                <!-- Apply button -->
+                <form method="POST" action="/job-seekers/apply" style="margin-top: 10px;">
+                    <input type="hidden" name="jobListingId" th:value="${jobListing.id}">
+                    <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Apply</button>
+                </form>
+            </div>
+            <!-- Repeat for each job listing -->
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <!-- Create job seeker profile button -->
+            <button type="button" onclick="window.location.href='/job-seekers/profile'" style="margin-right: 20px; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Create Job Seeker Profile</button>
+            
+            <!-- Back to home button -->
+            <button type="button" onclick="window.location.href='/'" style="padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Back to Home</button>
+        </div>
+    </div>
+</body>
+</html>
