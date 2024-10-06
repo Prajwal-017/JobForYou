@@ -1,37 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Seekers</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Link to CSS file -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .job-listing-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
-    <div style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-        <h1 style="text-align: center; color: #4CAF50;">Job Listings</h1>
-        <div id="job-listings" style="margin: 20px 0;">
+<body>
+    <div class="container">
+        <h1 class="text-center text-success mb-4">Job Listings</h1>
+        <div id="job-listings">
             <!-- Loop through job listings and display them -->
-            <div th:each="jobListing : ${jobListings}" style="border: 1px solid #ddd; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+            <div class="job-listing-card" th:each="jobListing : ${jobListings}">
                 <p><strong>Job Title:</strong> <span th:text="${jobListing.title}"></span></p>
                 <p><strong>Employer:</strong> <span th:text="${jobListing.employerName}"></span></p>
                 <p><strong>Description:</strong> <span th:text="${jobListing.description}"></span></p>
                 <p><strong>Location:</strong> <span th:text="${jobListing.location}"></span></p>
                 <p><strong>Job Type:</strong> <span th:text="${jobListing.jobType}"></span></p>
                 <p><strong>Skills Required:</strong> <span th:text="${jobListing.skillsRequired}"></span></p>
+                
                 <!-- Apply button -->
-                <form method="POST" action="/job-seekers/apply" style="margin-top: 10px;">
+                <form method="POST" action="/job-seekers/apply" class="mt-3">
                     <input type="hidden" name="jobListingId" th:value="${jobListing.id}">
-                    <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Apply</button>
+                    <button type="submit">Apply</button>
                 </form>
             </div>
             <!-- Repeat for each job listing -->
         </div>
 
-        <div style="text-align: center; margin-top: 20px;">
-            <!-- Create job seeker profile button -->
-            <button type="button" onclick="window.location.href='/job-seekers/profile'" style="margin-right: 20px; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Create Job Seeker Profile</button>
-            
-            <!-- Back to home button -->
-            <button type="button" onclick="window.location.href='/'" style="padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Back to Home</button>
+        <!-- Action buttons at the bottom -->
+        <div class="text-center mt-4">
+            <button type="button" onclick="window.location.href='/job-seekers/profile'" class="me-3">Create Job Seeker Profile</button>
+            <button type="button" onclick="window.location.href='/'">Back to Home</button>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
